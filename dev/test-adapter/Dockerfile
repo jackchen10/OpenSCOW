@@ -12,10 +12,10 @@
 FROM node:22-alpine@sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944 AS base
 
 # 配置稳定的国内 Alpine 镜像源，移除不稳定的官方仓库
-# RUN echo "https://mirrors.aliyun.com/alpine/v3.21/main" > /etc/apk/repositories && \
-#     echo "https://mirrors.aliyun.com/alpine/v3.21/community" >> /etc/apk/repositories && \
-#     echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.21/main" >> /etc/apk/repositories && \
-#     echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.21/community" >> /etc/apk/repositories
+RUN echo "https://mirrors.aliyun.com/alpine/v3.21/main" > /etc/apk/repositories && \
+    echo "https://mirrors.aliyun.com/alpine/v3.21/community" >> /etc/apk/repositories && \
+    echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.21/main" >> /etc/apk/repositories && \
+    echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.21/community" >> /etc/apk/repositories
 
 RUN apk update && apk add libc6-compat python3 make gcc g++ git
 
